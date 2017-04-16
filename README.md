@@ -21,11 +21,11 @@ Specific Objectives
 > Make sure you are setup with below mentioned requirements. Fork and have fun.
 
 ## Requirements
-¬   Python 3
-¬   BioPython
-¬   UniProt REST API
-¬   Requests module
-¬   Pandas
-¬   Matplotlib
-¬   PyMol
-¬   D3.js
+- Python 3
+- BioPython
+- UniProt REST API
+- Requests module
+- Pandas
+- Matplotlib
+- PyMol
+- D3.js
