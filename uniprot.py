@@ -11,6 +11,7 @@ import mysqlconnector
 
 server = 'http://www.uniprot.org/uniprot'
 
+
 def do_request(server, ID='', **kwargs):
     # type: (object, object, object) -> object
 
@@ -19,6 +20,32 @@ def do_request(server, ID='', **kwargs):
     if not req.ok:
         req.raise_for_status()
     return req
+
+#Method for extracting features for each protein including Gene Ontology
+def extract_go(protein):
+
+    done_features = set()
+    print(len(protein.features))
+    for feature in protein.features:
+        if feature[0] in done_features:
+            continue
+        else:
+            done_features.add(feature[0])
+            print(feature)
+    print(len(protein.cross_references))
+    per_source = defaultdict(list)
+    for xref in protein.cross_references:
+        source = xref[0]
+        per_source[source].append(xref[1:])
+    print(per_source.keys())
+    done_GOs = set()
+    print(len(per_source['GO']))
+    for annot in per_source['GO']:
+        if annot[1][0] in done_GOs:
+            continue
+        else:
+            done_GOs.add(annot[1][0])
+            print(annot)
 
 #p53
 req = do_request(server, query='gene:p53 AND reviewed:yes AND organism:Human',
@@ -46,7 +73,32 @@ sp_rec= SwissProt.read(handle)
 # print(sp_rec.sequence)
 
 #Extract GO
+def extract_go(protein):
 
+    done_features = set()
+    print(len(protein.features))
+    for feature in protein.features:
+        if feature[0] in done_features:
+            continue
+        else:
+            done_features.add(feature[0])
+            print(feature)
+    print(len(protein.cross_references))
+    per_source = defaultdict(list)
+    for xref in protein.cross_references:
+        source = xref[0]
+        per_source[source].append(xref[1:])
+    print(per_source.keys())
+    done_GOs = set()
+    print(len(per_source['GO']))
+    for annot in per_source['GO']:
+        if annot[1][0] in done_GOs:
+            continue
+        else:
+            done_GOs.add(annot[1][0])
+            print(annot)
+
+extract_go(sp_rec)
 
 
 #myc
@@ -150,16 +202,16 @@ sp_rec4 = SwissProt.read(handle4)
 
 
 
-# #PUSH DATA TO THE DATABASE
-# cursor = mysqlconnector.conn.cursor()
-#
-# #should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
-data = [
-        (1,'P53', 393, sp_rec.description),
-        (2,'MYC', 439, sp_rec2.description),
-        (3,'ERRB2',1255, sp_rec2.description),
-        (4,'EGFR', 1210,  sp_rec3.description),
-        (5,'PTEN', 403, sp_rec4.description)
-        ]
-mysqlconnector.cursor.executemany("""INSERT INTO cancer VALUES (%s,%s,%s,%s)""", data)
-mysqlconnector.conn.commit()
+# # #PUSH DATA TO THE DATABASE
+# # cursor = mysqlconnector.conn.cursor()
+# #
+# # #should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
+# data = [
+#         (1,'P53', 393, sp_rec.description),
+#         (2,'MYC', 439, sp_rec2.description),
+#         (3,'ERRB2',1255, sp_rec2.description),
+#         (4,'EGFR', 1210,  sp_rec3.description),
+#         (5,'PTEN', 403, sp_rec4.description)
+#         ]
+# mysqlconnector.cursor.executemany("""INSERT INTO cancer VALUES (%s,%s,%s,%s)""", data)
+# mysqlconnector.conn.commit()
