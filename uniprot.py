@@ -28,10 +28,24 @@ req = do_request(server, query='gene:p53 AND reviewed:yes AND organism:Human',
 
 uniprot_list = pd.read_table(StringIO.StringIO(req.text))
 uniprot_list.rename(columns={'Organism ID': 'ID'}, inplace=True)
-uniprot_list.set_index('ID', inplace=True)
-print(uniprot_list.iloc[:,[0]])
-print(uniprot_list.iloc[:,[1]])
-print(uniprot_list.iloc[:,[3]])
+print(uniprot_list)
+
+# print(uniprot_list.iloc[:,[0]])
+# print(uniprot_list.iloc[:,[1]])
+# print(uniprot_list.iloc[:,[3]])
+
+#additional features
+
+p53_human = uniprot_list[uniprot_list.ID == 9606]['Entry name'].tolist()[0]
+handle = ExPASy.get_sprot_raw(p53_human)
+sp_rec= SwissProt.read(handle)
+
+# print(sp_rec.entry_name, sp_rec.sequence_length, sp_rec.gene_name)
+# print(sp_rec.description)
+# print(sp_rec.organism, sp_rec.seqinfo)
+# print(sp_rec.sequence)
+
+#Extract GO
 
 
 
@@ -43,10 +57,21 @@ req = do_request(server, query='gene:myc AND reviewed:yes AND organism:Human',
 
 uniprot_list1 = pd.read_table(StringIO.StringIO(req.text))
 uniprot_list1.rename(columns={'Organism ID': 'ID'}, inplace=True)
-uniprot_list1.set_index('ID', inplace=True)
-print(uniprot_list1.iloc[:,[0]])
-print(uniprot_list1.iloc[:,[1]])
-print(uniprot_list1.iloc[:,[3]])
+print(uniprot_list1)
+
+# print(uniprot_list1.iloc[:,[0]])
+# print(uniprot_list1.iloc[:,[1]])
+# print(uniprot_list1.iloc[:,[3]])
+
+#additional myc analysis
+myc = uniprot_list1[uniprot_list1.ID == 9606]['Entry name'].tolist()[0]
+handle1 = ExPASy.get_sprot_raw(myc)
+sp_rec1 = SwissProt.read(handle1)
+
+# print(sp_rec1.entry_name, sp_rec.sequence_length, sp_rec.gene_name)
+# print(sp_rec1.description)
+# print(sp_rec1.organism, sp_rec.seqinfo)
+# print(sp_rec1.sequence)
 
 
 #errb2
@@ -57,10 +82,21 @@ req = do_request(server, query='gene:her2 AND reviewed:yes AND organism:Human',
 
 uniprot_list2 = pd.read_table(StringIO.StringIO(req.text))
 uniprot_list2.rename(columns={'Organism ID': 'ID'}, inplace=True)
-uniprot_list2.set_index('ID', inplace=True)
-print(uniprot_list2.iloc[:,[0]])
-print(uniprot_list2.iloc[:,[1]])
-print(uniprot_list2.iloc[:,[3]])
+print(uniprot_list2)
+
+# print(uniprot_list2.iloc[:,[0]])
+# print(uniprot_list2.iloc[:,[1]])
+# print(uniprot_list2.iloc[:,[3]])
+
+#additional errb2 analysis
+errb2 = uniprot_list2[uniprot_list2.ID == 9606]['Entry name'].tolist()[0]
+handle2 = ExPASy.get_sprot_raw(errb2)
+sp_rec2 = SwissProt.read(handle2)
+
+# print(sp_rec2.entry_name, sp_rec2.sequence_length, sp_rec2.gene_name)
+# print(sp_rec2.description)
+# print(sp_rec2.organism, sp_rec2.seqinfo)
+# print(sp_rec2.sequence)
 
 
 #Epidermal Growth Factor
@@ -71,11 +107,21 @@ req = do_request(server, query='gene:egfr AND reviewed:yes AND organism:Human',
 
 uniprot_list3 = pd.read_table(StringIO.StringIO(req.text))
 uniprot_list3.rename(columns={'Organism ID': 'ID'}, inplace=True)
-uniprot_list3.set_index('ID', inplace=True)
-print(uniprot_list3.iloc[:,[0]])
-print(uniprot_list3.iloc[:,[1]])
-print(uniprot_list3.iloc[:,[3]])
+print(uniprot_list3)
 
+# print(uniprot_list3.iloc[:,[0]])
+# print(uniprot_list3.iloc[:,[1]])
+# print(uniprot_list3.iloc[:,[3]])
+
+#additional egfr analysis
+egfr = uniprot_list3[uniprot_list3.ID == 9606]['Entry name'].tolist()[0]
+handle3 = ExPASy.get_sprot_raw(egfr)
+sp_rec3 = SwissProt.read(handle3)
+
+# print(sp_rec3.entry_name, sp_rec3.sequence_length, sp_rec3.gene_name)
+# print(sp_rec3.description)
+# print(sp_rec3.organism, sp_rec3.seqinfo)
+# print(sp_rec3.sequence)
 
 #Pten
 req = do_request(server, query='gene:pten AND reviewed:yes AND organism:Human',
@@ -85,15 +131,35 @@ req = do_request(server, query='gene:pten AND reviewed:yes AND organism:Human',
 
 uniprot_list4 = pd.read_table(StringIO.StringIO(req.text))
 uniprot_list4.rename(columns={'Organism ID': 'ID'}, inplace=True)
-uniprot_list4.set_index('ID', inplace=True)
-print(uniprot_list4.iloc[:,[0]])
-print(uniprot_list4.iloc[:,[1]])
-print(uniprot_list4.iloc[:,[3]])
+print(uniprot_list4)
+
+# print(uniprot_list4.iloc[:,[0]])
+# print(uniprot_list4.iloc[:,[1]])
+# print(uniprot_list4.iloc[:,[3]])
+
+#additional pten analysis
+pten = uniprot_list4[uniprot_list4.ID == 9606]['Entry name'].tolist()[0]
+handle4 = ExPASy.get_sprot_raw(pten)
+sp_rec4 = SwissProt.read(handle4)
+
+# print(sp_rec4.entry_name, sp_rec4.sequence_length, sp_rec4.gene_name)
+# print(sp_rec4.description)
+# print(sp_rec4.organism, sp_rec4.seqinfo)
+# print(sp_rec4.sequence)
 
 
-cursor = mysqlconnector.conn.cursor()
 
-#should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
-data = [(1,'P53',393),(2,'MYC',439), (3, 'ERRB2', 1255),(4, 'EGFR', 490), (5, 'PTEN', 403)]
-cursor.executemany("""INSERT INTO cancer VALUES (%s,%s,%s)""",data)
+
+# #PUSH DATA TO THE DATABASE
+# cursor = mysqlconnector.conn.cursor()
+#
+# #should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
+data = [
+        (1,'P53', 393, sp_rec.description),
+        (2,'MYC', 439, sp_rec2.description),
+        (3,'ERRB2',1255, sp_rec2.description),
+        (4,'EGFR', 1210,  sp_rec3.description),
+        (5,'PTEN', 403, sp_rec4.description)
+        ]
+mysqlconnector.cursor.executemany("""INSERT INTO cancer VALUES (%s,%s,%s,%s)""", data)
 mysqlconnector.conn.commit()
