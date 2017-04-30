@@ -6,7 +6,7 @@ import requests
 from Bio import ExPASy, SwissProt
 import pandas as pd
 import StringIO
-import mysqlconnector
+
 
 
 server = 'http://www.uniprot.org/uniprot'
@@ -185,12 +185,8 @@ sp_rec4 = SwissProt.read(handle4)
 extract_features(sp_rec4)
 
 
-
-
-#PUSH DATA TO THE DATABASE
-cursor = mysqlconnector.conn.cursor()
-#
 # should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
+# pass this to proteomics datatbase
 data = [
         (1,'P53', 393, sp_rec.description, "GO:0000785, C:chromatin, IBA:GO_Central GO:0005524, F:ATP binding, \
                                             IDA:UniProtKB GO:0006915, \
@@ -207,5 +203,3 @@ data = [
                                               GO:0010997', F:anaphase-promoting complex binding, IPI:BHF-UCL \
                                               GO:0030534, P:adult behavior, IEA:Ensembl")
         ]
-cursor.executemany("""INSERT INTO cancer VALUES (%s,%s,%s,%s,%s)""", data)
-mysqlconnector.conn.commit()
