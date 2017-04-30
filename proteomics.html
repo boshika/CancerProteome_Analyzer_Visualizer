@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<title>Cancer Proteomics: </title>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+    <!--<link rel="stylesheet" type="text/css" href="css/search_product.css" />-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <script type="text/javascript" src="js/protein.js"></script>
+</head>
+<body id="main">
+    <h1>Select a protein from the dropdown menu</h1>
+
+    <form name="protein_search" id="protein_search"action="protein.cgi" method="get">
+        <input name="search_term" type="search" value="" autofocus="autofocus">
+        <input name="submit" type="submit" value="submit" id="submit">
+    </form>
+    <section id='results'>
+        <p>
+            <span id='match_count'>0</span> match(es) found.
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <td>EntryName</td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- this will be filled in by javascript when there are results -->
+            </tbody>
+    </section>
+</body>
+</html>
