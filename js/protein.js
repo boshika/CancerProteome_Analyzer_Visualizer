@@ -23,7 +23,7 @@ function runSearch(term) {
 // this processes a passed JSON structure representing gene matches and draws it
 //  to the result table
 function processJSON( data ) {
-    console.log(data.product);
+    console.log(data);
     // set the span that lists the match count
     $('#match_count').text( data.match_count );
 
@@ -38,7 +38,10 @@ function processJSON( data ) {
         // $('<tr/>', { "id" : this_row_id } ).appendTo('tbody');
 
         // add the product column
-        $('<td/>', { "text" : item.product[0]} ).appendTo('tbody');
+        $('<td/>', { "text" : item.product} ).appendTo('tbody');
+        $('<td/>', { "text" : item.length} ).appendTo('tbody');
+        $('<td/>', { "text" : item.description} ).appendTo('tbody');
+        $('<td/>', { "text" : item.GO} ).appendTo('tbody');
 
     });
 
@@ -53,5 +56,9 @@ $(document).ready( function() {
     $('#submit').click( function() {
         runSearch();
         return false;  // prevents 'normal' form submission
+    });
+
+    $('#ERRB2').click( function() {
+        alert("Works");
     });
 });

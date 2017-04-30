@@ -4,18 +4,55 @@
     <meta charset="utf-8" />
 	<title>Cancer Proteomics: </title>
     <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-    <!--<link rel="stylesheet" type="text/css" href="css/search_product.css" />-->
+    <link rel="stylesheet" type="text/css" href="style/proteins.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
     <script type="text/javascript" src="js/protein.js"></script>
+
+    <script>
+      $( function() {
+        var availableTags = [
+                                "P53",
+                                "MYC"
+        ];
+        $( '#search_term' ).autocomplete({
+                  availableTags: availableTags,
+                  classes: {
+                      "ui-autocomplete": "highlight"
+                  },
+                  minLength: 1,
+                  source: availableTags
+        })
+      } );
+  </script>
 </head>
 <body id="main">
-    <h1>Select a protein from the dropdown menu</h1>
+    <img src="header_image.jpg" alt="biomolecule">
+    <div id="header1">
+        <h1>Cancer Proteomics: Analyzer And Visualizer</h1>
+    </div>
 
+    <h2>Select a protein from the dropdown menu</h2>
+
+    <!--<form name="protein_search" id="protein_search"action="protein.cgi" method="get">-->
+        <!--<input name="search_term" type="search" value="" autofocus="autofocus">-->
+        <!--<input name="submit" type="submit" value="submit" id="submit">-->
+    <!--</form>-->
+
+    <!--DROPDOWN MENU-->
     <form name="protein_search" id="protein_search"action="protein.cgi" method="get">
-        <input name="search_term" type="search" value="" autofocus="autofocus">
+        <select name="search_term">
+          <option value="P53">P53</option>
+          <option value="MYC">MYC</option>
+          <option value="ERRB2">ERRB2</option>
+          <option value="EGFR">EGFR</option>
+          <option value="PTEN">PTEN</option>
+        </select>
         <input name="submit" type="submit" value="submit" id="submit">
     </form>
+
+
+
     <section id='results'>
         <p>
             <span id='match_count'>0</span> match(es) found.
@@ -24,6 +61,9 @@
             <thead>
             <tr>
                 <td>EntryName</td>
+                <td>Length</td>
+                <td>Description</td>
+                <td>Gene Ontology</td>
             </tr>
             </thead>
             <tbody>

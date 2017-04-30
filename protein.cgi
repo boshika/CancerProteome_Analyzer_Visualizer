@@ -17,13 +17,13 @@ gene = form.getvalue('search_term')
 
 cursor = mysqlconnector.conn.cursor()
 
-cursor.execute("SELECT entryname FROM cancer WHERE entryname LIKe %s", (gene, ))
+cursor.execute("SELECT entryname, length, description, GO FROM cancer WHERE entryname LIKe %s", (gene, ))
 
 
 
 results = { 'match_count': 0, 'matches': list() }
-for (product) in cursor:
-    results['matches'].append({'product': product})
+for (product, length, description, GO) in cursor:
+    results['matches'].append({'product': product, 'length': length, 'description': description, 'GO': GO})
     results['match_count'] += 1
 
 
