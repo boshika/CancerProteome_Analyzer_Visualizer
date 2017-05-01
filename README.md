@@ -16,12 +16,8 @@ Specific Objectives
 -   Users can access pre-populated data such as features, gene ontology, cross-references on certain genes that are involved in cancer
 -   User can select certain aspects of the protein to explore, such as looking at spatial distribution of the protein chains, a basic computation of the molecular distances, and 3D structure of the protein
 
-## Usage
-
-> Make sure you are setup with below mentioned requirements. Fork and have fun.
-
 ## Requirements
-- [Python3](https://www.python.org/download/releases/3.0/)
+- [Python](https://www.python.org/download/releases)
 - [BioPython](http://biopython.org//wiki/Biopython)
 - [UniProt REST API](http://www.uniprot.org/help/programmatic_access)
 - [Requests library](http://docs.python-requests.org/en/master/)
