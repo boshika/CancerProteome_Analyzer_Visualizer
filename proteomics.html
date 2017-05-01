@@ -31,7 +31,13 @@
     <div id="header1">
         <h1>Cancer Proteomics: Analyzer And Visualizer</h1>
     </div>
-
+    <div id="images">
+        <a href="matplotlib_analysis/egfr_1jl9.jpg" target=_blank>EGFR 1JL9 Model | </a>
+        <a href="matplotlib_analysis/errb_1n8z.jpg" target=_blank>ERRB2 1N8Z Model | </a>
+        <a href="matplotlib_analysis/p53_1utp.jpg" target=_blank>P53 1UTP Model | </a>
+        <a href="matplotlib_analysis/myc_1nkp.jpg" target=_blank>MYC 1NKP Model | </a>
+        <a href="matplotlib_analysis/pten_1d5r.jpg" target=_blank>PTEN 1D5R Model | </a>
+    </div>
     <h2>Select a protein from the dropdown menu</h2>
 
     <!--<form name="protein_search" id="protein_search"action="protein.cgi" method="get">-->
@@ -42,33 +48,53 @@
     <!--DROPDOWN MENU-->
     <form name="protein_search" id="protein_search"action="protein.cgi" method="get">
         <select name="search_term">
+          <option value="PTEN">PTEN</option>
+          <option value="MYC">MYC</option>
           <option value="P53">P53</option>
           <option value="MYC">MYC</option>
           <option value="ERRB2">ERRB2</option>
           <option value="EGFR">EGFR</option>
-          <option value="PTEN">PTEN</option>
+
         </select>
         <input name="submit" type="submit" value="submit" id="submit">
     </form>
-
-
 
     <section id='results'>
         <p>
             <span id='match_count'>0</span> match(es) found.
         </p>
-        <table>
+        <div class="protein">
+            <!-- this will show the protein name -->
+        </div>
+        <h2> ANALYSIS DONE USING UNIPROT API</h2>
+        <table id="uniprot">
             <thead>
             <tr>
-                <td>EntryName</td>
+                <!--<td>EntryName</td>-->
                 <td>Length</td>
                 <td>Description</td>
                 <td>Gene Ontology</td>
             </tr>
             </thead>
             <tbody>
-                <!-- this will be filled in by javascript when there are results -->
+                <!-- will display analysis from uniprot -->
             </tbody>
+        </table>
+        <h2> ANALYSIS DONE USING PBD PARSER</h2>
+        <table id="pdb">
+            <thead>
+            <tr>
+                <td>Model</td>
+                <td>Chains</td>
+                <td>Residues</td>
+                <td>Atoms</td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- will display analysis from pdb -->
+            </tbody>
+        </table>
+
     </section>
 </body>
 </html>

@@ -38,10 +38,15 @@ function processJSON( data ) {
         // $('<tr/>', { "id" : this_row_id } ).appendTo('tbody');
 
         // add the product column
-        $('<td/>', { "text" : item.product} ).appendTo('tbody');
-        $('<td/>', { "text" : item.length} ).appendTo('tbody');
-        $('<td/>', { "text" : item.description} ).appendTo('tbody');
-        $('<td/>', { "text" : item.GO} ).appendTo('tbody');
+        $('<h2/>', { "text" : item.product} ).appendTo('.protein');
+        $('<td/>', { "text" : item.length} ).appendTo('#uniprot');
+        $('<td/>', { "text" : item.description} ).appendTo('#uniprot');
+        $('<td/>', { "text" : item.GO} ).appendTo('#uniprot');
+
+        $('<td/>', { "text" : item.model} ).appendTo('#pdb');
+        $('<td/>', { "text" : item.chains} ).appendTo('#pdb');
+        $('<td/>', { "text" : item.residues} ).appendTo('#pdb');
+        $('<td/>', { "text" : item.atoms} ).appendTo('#pdb');
 
     });
 

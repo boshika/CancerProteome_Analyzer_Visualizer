@@ -39,15 +39,29 @@ h1 {
 }
 
 h2 {
-    font-size: 130%;
+    font-size: 160%;
     font-weight: bold;
     color: blueviolet;
     font-family: Helvetica;
 }
 
+/*h3 {*/
+    /*font-weight: bold;*/
+    /*color: blueviolet;*/
+    /*font-family: Helvetica;*/
+/*}*/
+
 /* the results section should be initially invisible */
 section#results {
     display: none;
+}
+
+#images {
+    display: inline;
+}
+
+a {
+    letter-spacing: 2px;
 }
 
 table {
