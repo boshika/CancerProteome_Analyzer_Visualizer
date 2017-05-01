@@ -74,7 +74,7 @@ def plot(model):
         ax.get_yaxis().set_visible(False)
         ax.get_xaxis().set_visible(False)
 
-    fig.savefig('./matplotlib_analysis/myc_1nkp.jpg')
+    fig.savefig('./matplotlib_analysis/pten_1d5r.jpg')
     # fig = plt.show()
 
 ####################### P53 1UTP MODEL ANALYSIS #######################
@@ -130,8 +130,8 @@ plot(myc_1nkp)
 # repository.retrieve_pdb_file('1N8Z', pdir='.')
 errb_1n8z = parser.get_structure('ERRB2-Complexed with Herceptin', './protein_models/1n8z.cif')
 
-#chains in 1nkp
-errb_1n8z_model = describe_model('1NKP', errb_1n8z)
+#chains in 1n8z
+errb_1n8z_model = describe_model('1N8Z', errb_1n8z)
 print(errb_1n8z_model)
 
 #all nonstandard residues except water
@@ -143,10 +143,52 @@ for residue in errb_1n8z.get_residues():
 print(residues1)
 
 #Pick a chain and look at its atoms
-res1 = next(myc_1nkp[0]['A'].get_residues())
+res1 = next(errb_1n8z[0]['A'].get_residues())
 print(res1)
 
 # plot(errb_1n8z)
+
+####################### EGFR 1N8Z MODEL ANALYSIS #######################
+# repository.retrieve_pdb_file('1JL9', pdir='.')
+egfr_1jl9 = parser.get_structure('ERRB2-Complexed with Herceptin', './protein_models/1jl9.cif')
+
+#chains in 1Jl9
+egfr_1jl9_model = describe_model('1JL9', egfr_1jl9)
+print(egfr_1jl9_model)
+
+#all nonstandard residues except water
+count1 =0
+if residue.id[0] in [' ', 'H_HOH']:
+        count1 +=1
+print("Most of the residues are HOH: {}".format(count1))
+
+#Pick a chain and look at its atoms
+res2 = next(egfr_1jl9[0]['A'].get_residues())
+print(res2)
+
+# plot(egfr_1jl9)
+####################### PTEN 1D5R MODEL ANALYSIS #######################
+# repository.retrieve_pdb_file('1D5R', pdir='.')
+pten_1d5r = parser.get_structure('PTEN TUMOR SUPPRESSOR', './protein_models/1d5r.cif')
+
+#chains in 1Jl9
+pten_1d5r_model = describe_model('1D5R', pten_1d5r)
+print(pten_1d5r_model)
+
+#all nonstandard residues except water
+residues2 = []
+for residue in pten_1d5r.get_residues():
+    if residue.id[0] in [' ', 'H_HOH']:
+        continue
+    residues2.append(residue.id)
+print(residues2)
+
+#Pick a chain and look at its atoms
+res3 = next(pten_1d5r[0]['A'].get_residues())
+print(res3)
+
+plot(pten_1d5r)
+
 
 # should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
 # pass this to proteomics datatbase table models
