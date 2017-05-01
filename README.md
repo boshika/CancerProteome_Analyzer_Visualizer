@@ -6,8 +6,6 @@
     1. [Installation](#installation)
     2. [Running the program](#running-program)
     3. [Documentation](#documentation)
-1. [Run-time Graphs](#graphs)
-1. [Team](#team)
 
 ## Abstract
 Proteomics is the study of protein that includes protein function and structure. One of the main objectives of this field is to explore the 3D structure of proteins. This application utilizes the main objective of proteomics. The user can explore a specific set of genes involved in cancer.  It allows users to access information about that specific biomolecule, and run basic analysis and visualize its models.
