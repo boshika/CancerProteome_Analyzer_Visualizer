@@ -29,3 +29,9 @@ Specific Objectives
 ## Development
 
 ### Installation
+
+The user can access limited about of protein data via a web page at Cancer Proteomics: Visualizer and Analyzer, this will allow users to see pre-populated data for a limited set of proteins. There is a drop-down menu, from where a user can choose the protein of interest.
+
+Alternately, if the user is interested in a protein that is not listed on the web page, they can set the project locally by following these steps 
+``Fork and clone the CancerProteome_Analyzer_Visualizer Repository from GitHub`
+```
