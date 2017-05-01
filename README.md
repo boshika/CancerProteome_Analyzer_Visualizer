@@ -3,8 +3,8 @@
 1. [Abstract](#abstract)
 1. [Requirements](#requirements)
 1. [Development](#development)
-    1. [Running the program](#running-program)
-    2. [Sample I/O](#samplei/o)
+    1. [Installation](#installation)
+    2. [Running the program](#running-program)
     3. [Documentation](#documentation)
 1. [Run-time Graphs](#graphs)
 1. [Team](#team)
@@ -25,3 +25,7 @@ Specific Objectives
 - [Matplotlib](https://matplotlib.org/)
 - [PyMol](https://www.pymol.org/)
 - [D3.js](https://d3js.org/)
+
+## Development
+
+### Installation
