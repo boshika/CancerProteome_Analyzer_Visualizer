@@ -197,7 +197,7 @@ pdb_data = [(1, 'P53 1UTP Model', 'Chain: E. Number of residues: 43. Number of a
                                    Chain: A. Number of residues: 395. Number of atoms: 1734, \
                                    Chain: B. Number of residues: 265. Number of atoms: 1593, \
                                    Chain: C. Number of residues: 276. Number of atoms: 1610',
-                                   'H_ZN=951 H_ZN=952H_ZN=953', 'Residue SER het=  resseq=94 icode='),
+                                   'H_ZN=951 H_ZN=952H_ZN=953', 'Residue SER het=  resseq=94 icode=', 1),
             (2, 'MYC 1NKP Model', 'Chain: F. Number of residues: 81. Number of atoms: 447,  \
                                    Chain: G. Number of residues: 86. Number of atoms: 452, \
                                    Chain: H. Number of residues: 79. Number of atoms: 445, \
@@ -206,14 +206,14 @@ pdb_data = [(1, 'P53 1UTP Model', 'Chain: E. Number of residues: 43. Number of a
                                    Chain: B. Number of residues: 158. Number of atoms: 761, \
                                    Chain: D. Number of residues: 165. Number of atoms: 787, \
                                    Chain: E. Number of residues: 160. Number of atoms: 740',
-                                   'Most of the residues are HOH: 992', 'Residue DC het=  resseq=101 icode='),
+                                   'Most of the residues are HOH: 992', 'Residue DC het=  resseq=101 icode=', 2),
             (3, 'ERRB2 1N8Z MODEL', 'Chain: A. Number of residues: 233. Number of atoms: 1664, \
                                      Chain: B. Number of residues: 233. Number of atoms: 1655, \
                                     Chain: C. Number of residues: 631. Number of atoms: 4571',
-                                    'H_NAG=766, H_NAG=738, H_SO4=1001', 'Residue ASP het=  resseq=1 icode='),
+                                    'H_NAG=766, H_NAG=738, H_SO4=1001', 'Residue ASP het=  resseq=1 icode=', 3),
             (4, 'EGFR 1JL9 MODEL', 'Chain: A. Number of residues: 47. Number of atoms: 335, \
                                     Chain: B. Number of residues: 47. Number of atoms: 369',
-                                    'Most of the residues are HOH: 1', 'Residue CYS he resseq=6 icode'),
+                                    'Most of the residues are HOH: 1', 'Residue CYS he resseq=6 icode', 4),
             (5, 'PTEN 1D5R MODEL', 'Chain: A. Number of residues: 690. Number of atoms: 2968',
-                                    'H_TLA=352', 'Residue ARG het  resseq=14 icode')
+                                    'H_TLA=352', 'Residue ARG het  resseq=14 icode', 5)
         ]
