@@ -96,11 +96,11 @@ for residue in p53_1tup.get_residues():
     if residue.id[0] in [' ', 'H_HOH']:
         continue
     residues.append(residue.id)
-# print(residues)
+print(residues)
 
 #Pick a chain and look at its atoms
 res = next(p53_1tup[0]['A'].get_residues())
-# print(res)
+print(res)
 
 # plot(p53_1tup)
 
@@ -110,7 +110,7 @@ myc_1nkp = parser.get_structure('MYC - DNA Binding', './protein_models/1nkp.cif'
 
 #chains in 1nkp
 myc_1nkp_model = describe_model('1NKP', myc_1nkp)
-print(myc_1nkp_model)
+# print(myc_1nkp_model)
 
 #all nonstandard residues except water
 count = 0
@@ -123,7 +123,7 @@ print("Most of the residues are HOH: {}".format(count))
 res1 = next(myc_1nkp[0]['F'].get_residues())
 print(res1)
 
-plot(myc_1nkp)
+# plot(myc_1nkp)
 
 
 ####################### ERRB2 1N8Z MODEL ANALYSIS #######################
@@ -132,7 +132,7 @@ errb_1n8z = parser.get_structure('ERRB2-Complexed with Herceptin', './protein_mo
 
 #chains in 1n8z
 errb_1n8z_model = describe_model('1N8Z', errb_1n8z)
-print(errb_1n8z_model)
+# print(errb_1n8z_model)
 
 #all nonstandard residues except water
 residues1 = []
@@ -143,18 +143,18 @@ for residue in errb_1n8z.get_residues():
 print(residues1)
 
 #Pick a chain and look at its atoms
-res1 = next(errb_1n8z[0]['A'].get_residues())
-print(res1)
+res2 = next(errb_1n8z[0]['A'].get_residues())
+print(res2)
 
 # plot(errb_1n8z)
 
-####################### EGFR 1N8Z MODEL ANALYSIS #######################
+####################### EGFR 1JL9 MODEL ANALYSIS #######################
 # repository.retrieve_pdb_file('1JL9', pdir='.')
 egfr_1jl9 = parser.get_structure('ERRB2-Complexed with Herceptin', './protein_models/1jl9.cif')
 
 #chains in 1Jl9
 egfr_1jl9_model = describe_model('1JL9', egfr_1jl9)
-print(egfr_1jl9_model)
+# print(egfr_1jl9_model)
 
 #all nonstandard residues except water
 count1 =0
@@ -163,8 +163,8 @@ if residue.id[0] in [' ', 'H_HOH']:
 print("Most of the residues are HOH: {}".format(count1))
 
 #Pick a chain and look at its atoms
-res2 = next(egfr_1jl9[0]['A'].get_residues())
-print(res2)
+res3 = next(egfr_1jl9[0]['A'].get_residues())
+print(res3)
 
 # plot(egfr_1jl9)
 ####################### PTEN 1D5R MODEL ANALYSIS #######################
@@ -173,7 +173,7 @@ pten_1d5r = parser.get_structure('PTEN TUMOR SUPPRESSOR', './protein_models/1d5r
 
 #chains in 1Jl9
 pten_1d5r_model = describe_model('1D5R', pten_1d5r)
-print(pten_1d5r_model)
+# print(pten_1d5r_model)
 
 #all nonstandard residues except water
 residues2 = []
@@ -184,15 +184,36 @@ for residue in pten_1d5r.get_residues():
 print(residues2)
 
 #Pick a chain and look at its atoms
-res3 = next(pten_1d5r[0]['A'].get_residues())
-print(res3)
+res4 = next(pten_1d5r[0]['A'].get_residues())
+print(res4)
 
-plot(pten_1d5r)
+# plot(pten_1d5r)
 
 
 # should be done using a better way, extracting data from uniprot API and hardcoding it defeats the purpose
 # pass this to proteomics datatbase table models
-# data = [(1, 'P53 1UTP Model', p53_itup_model, residues, res),
-#         (2, 'MYC 1NKP Model', myc_1nkp_model, "Majority of residues are HOH, Total 962", res1
-#
-#         ]
+pdb_data = [(1, 'P53 1UTP Model', 'Chain: E. Number of residues: 43. Number of atoms: 442, \
+                                   Chain: F. Number of residues: 35. Number of atoms: 449, \
+                                   Chain: A. Number of residues: 395. Number of atoms: 1734, \
+                                   Chain: B. Number of residues: 265. Number of atoms: 1593, \
+                                   Chain: C. Number of residues: 276. Number of atoms: 1610',
+                                   'H_ZN=951 H_ZN=952H_ZN=953', 'Residue SER het=  resseq=94 icode='),
+            (2, 'MYC 1NKP Model', 'Chain: F. Number of residues: 81. Number of atoms: 447,  \
+                                   Chain: G. Number of residues: 86. Number of atoms: 452, \
+                                   Chain: H. Number of residues: 79. Number of atoms: 445, \
+                                   Chain: J. Number of residues: 84. Number of atoms: 450, \
+                                   Chain: A. Number of residues: 179. Number of atoms: 824, \
+                                   Chain: B. Number of residues: 158. Number of atoms: 761, \
+                                   Chain: D. Number of residues: 165. Number of atoms: 787, \
+                                   Chain: E. Number of residues: 160. Number of atoms: 740',
+                                   'Most of the residues are HOH: 992', 'Residue DC het=  resseq=101 icode='),
+            (3, 'ERRB2 1N8Z MODEL', 'Chain: A. Number of residues: 233. Number of atoms: 1664, \
+                                     Chain: B. Number of residues: 233. Number of atoms: 1655, \
+                                    Chain: C. Number of residues: 631. Number of atoms: 4571',
+                                    'H_NAG=766, H_NAG=738, H_SO4=1001', 'Residue ASP het=  resseq=1 icode='),
+            (4, 'EGFR 1JL9 MODEL', 'Chain: A. Number of residues: 47. Number of atoms: 335, \
+                                    Chain: B. Number of residues: 47. Number of atoms: 369',
+                                    'Most of the residues are HOH: 1', 'Residue CYS he resseq=6 icode'),
+            (5, 'PTEN 1D5R MODEL', 'Chain: A. Number of residues: 690. Number of atoms: 2968',
+                                    'H_TLA=352', 'Residue ARG het  resseq=14 icode')
+        ]
