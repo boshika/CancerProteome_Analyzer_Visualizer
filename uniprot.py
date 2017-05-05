@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
+'''
+This script pulls protein specific information from UNIPROT's API. It parses the 
+protein data and extracts certain features. For usage see README
+'''
 
 from collections import defaultdict
-import requests
+# import requests
 from Bio import ExPASy, SwissProt
 import pandas as pd
 import StringIO
@@ -203,3 +207,5 @@ data = [
                                               GO:0010997', F:anaphase-promoting complex binding, IPI:BHF-UCL \
                                               GO:0030534, P:adult behavior, IEA:Ensembl")
         ]
+
+
